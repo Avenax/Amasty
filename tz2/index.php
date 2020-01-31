@@ -20,18 +20,24 @@ function key_compare_func($a, $b) {
 $numReq = 5;
 
 function setArray($numReq) {
+    // array list colors
     $arr = ['red', 'blue', 'green', 'yellow', 'lime', 'magenta', 'black', 'gold', 'gray', 'tomato'];
 
+    // array random & get num value
     $shuffle = array_rand($arr, $numReq);
-
+    // empty array
     $newArr = [];
-
+    // pars random value
     foreach ($shuffle as $value) {
+        // set color in emty array
         $newArr[$value] = $arr[$value];
     }
 
+    // diff arrays
     $result = array_diff_uassoc($arr, $newArr, "key_compare_func");
+    // sort key
     sort($result);
+    // return result
     return [
         'result' => $result,
         'arr' => $arr,

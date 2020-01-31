@@ -12,6 +12,7 @@ ini_set('display_startup_errors', 1);
  * Суммарно для двух классов должно быть реализовано 3 (три) метода
  */
 
+// use autoload
 spl_autoload_register(function ($class) {
     $file = str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
     if (file_exists($file)) {
@@ -21,10 +22,12 @@ spl_autoload_register(function ($class) {
     return false;
 });
 
+// create new class
 $first = new First();
+// create new class
 $second = new Second();
 
-
+// show results
 var_dump($first->getClassname());
 
 var_dump($second->getClassname());
